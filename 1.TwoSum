@@ -1,0 +1,57 @@
+-----------------------------------------------------------------------------------------------
+Description
+
+Given an array of integers, return indices of the two numbers such that they add up to a specific target.
+You may assume that each input would have exactly one solution, and you may not use the same element twice.
+Example:
+Given nums = [2, 7, 11, 15], target = 9,
+
+Because nums[0] + nums[1] = 2 + 7 = 9,
+return [0, 1].
+
+-----------------------------------------------------------------------------------------------
+
+Solution 1 using  c:
+
+/**
+ * Note: The returned array must be malloced, assume caller calls free().
+ */
+int* twoSum(int* nums, int numsSize, int target) {
+    int *tmp=(int*)malloc(2*sizeof(int ));
+    for (int i=0;i<numsSize;i++)
+        for(int j=i+1;j<numsSize;j++)
+            if(nums[i]+nums[j]==target)
+            {
+                tmp[0]=i;
+                tmp[1]=j;
+            }
+    return tmp;
+}
+
+-----------------------------------------------------------------------------------------------
+
+Solution 1 using  c:
+
+class Solution {
+public:
+	vector<int> twoSum(vector<int>& nums, int target) {
+		vector<int> tmp;
+		unsigned int i, j = i = 0;
+		while (i < nums.size())
+		{
+			j = i + 1;
+			while (j < nums.size())
+			{
+				if (nums[i] + nums[j] == target)
+				{
+					tmp.push_back(i);
+					tmp.push_back(j);
+					return tmp;
+				}
+				j++;
+			}
+			i++;
+		}
+
+	}
+};
